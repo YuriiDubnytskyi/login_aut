@@ -28,9 +28,7 @@ app.use(bodyParser.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
+
 const jsonParser = express.json();
 
 app.get("/book",(req,res)=>{
@@ -44,7 +42,9 @@ app.get("/book",(req,res)=>{
         client.close();
     });
 });
-
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 
 
