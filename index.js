@@ -1,20 +1,24 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const Schema = mongoose.Schema;
-const Book = new Schema({
-    bookName: String,
-    bookText: String
-},{
-    collection: 'usersSite'
-});
-
-mongoose.connect('mongodb+srv://yurii:dataUser@clusterproject-ftmhi.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true}).then(
-    () => {console.log('Database is connected') },
-    err => { console.log('Can not connect to the database' +err)
-});
+// const Schema = mongoose.Schema;
+// const Book = new Schema({
+//     bookName: String,
+//     bookText: String
+// },{
+//     collection: 'usersSite'
+// });
+//
+// mongoose.connect('mongodb+srv://yurii:dataUser@clusterproject-ftmhi.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true}).then(
+//     () => {console.log('Database is connected') },
+//     err => { console.log('Can not connect to the database' +err)
+// });
+const uri = "mongodb+srv://yurii:dataUser@clusterproject-ftmhi.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect();
+const collection = client.db("usersData").collection("usersSite");
 let cors = require('cors');
 
 app.use(cors({credentials: true, origin: true}));
@@ -31,11 +35,11 @@ app.get('*', (req, res) => {
 const jsonParser = express.json();
 
 app.get("/books",(req,res)=>{
-    Book.find({}, function(err, users){
-        if(err) return console.log(err);
-        console.log(users);
-        res.send(users);
-        console.log(users);
+    collection.find({},(err,books)=>{
+        if (err) return console.log(err)
+        console.log(books);
+        res.send(books);
+        console.log(books);
     });
 });
 

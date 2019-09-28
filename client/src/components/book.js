@@ -10,6 +10,7 @@ class Book extends Component{
         axios.get('/books')
             .then(response => {
                 this.setState({ books: response.data });
+                console.log(response.data)
             })
             .catch(function (error) {
                 console.log(error);
