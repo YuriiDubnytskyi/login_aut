@@ -33,7 +33,7 @@ app.get('*', (req, res) => {
 });
 const jsonParser = express.json();
 
-app.get("/books",(req,res)=>{
+app.get("/book",(req,res)=>{
     client.connect(err => {
         const collection = client.db("usersData").collection("usersSite");
         collection.find({},(err,books)=>{

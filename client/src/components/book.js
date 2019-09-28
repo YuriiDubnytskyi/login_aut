@@ -7,7 +7,7 @@ class Book extends Component{
         this.state = {books: []};
     }
     componentDidMount(){
-        axios.get('/books')
+        axios.get('/book')
             .then(response => {
                 this.setState({ books: response.data });
                 console.log(response.data)
