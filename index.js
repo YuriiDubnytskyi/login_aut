@@ -36,14 +36,15 @@ const jsonParser = express.json();
 app.get("/book",(req,res)=>{
     client.connect(err => {
         const collection = client.db("usersData").collection("usersSite");
-        collection.find({},(err,books)=>{
+        collection.find({}).toArray((err,books)=>{
             if (err) return console.log(err);
             console.log(books);
-            res.send(books);
-            console.log(books);
+            res.send(books)
         });
+        client.close();
     });
 });
+
 
 
 
