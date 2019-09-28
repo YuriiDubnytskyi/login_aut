@@ -18,8 +18,6 @@ const bodyParser = require('body-parser');
 // });
 const uri = "mongodb+srv://yurii:dataUser@clusterproject-ftmhi.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect();
-const collection = client.db("usersData").collection("usersSite");
 let cors = require('cors');
 
 app.use(cors({credentials: true, origin: true}));
@@ -36,11 +34,14 @@ app.get('*', (req, res) => {
 const jsonParser = express.json();
 
 app.get("/books",(req,res)=>{
-    collection.find({},(err,books)=>{
-        if (err) return console.log(err)
-        console.log(books);
-        res.send(books);
-        console.log(books);
+    client.connect(err => {
+        const collection = client.db("usersdatabase").collection("telegram");
+        collection.find({},(err,books)=>{
+            if (err) return console.log(err)
+            console.log(books);
+            res.send(books);
+            console.log(books);
+        });
     });
 });
 
