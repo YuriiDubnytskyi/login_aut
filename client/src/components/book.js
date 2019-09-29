@@ -66,7 +66,7 @@ class Book extends Component{
 
 
     render() {
-        console.log(this.state)
+        console.log(this.props)
         return (
             <div>
                 <section className="features3 cid-rqmSnChdXl mbr-parallax-background" id="features3-b">
