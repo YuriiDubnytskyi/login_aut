@@ -74,10 +74,11 @@ class Book extends Component{
                         <div className="media-container-row">
                     {this.tableBooks()}
                     {this.ifAdmin(this.props.testStore[0])}
-                    {this.checkUnit(this.props.testUnit)}
+
                         </div>
                     </div>
                 </section>
+                {this.checkUnit(this.props.testUnit)}
             </div>
         );
     }
