@@ -5,9 +5,29 @@ import {createStore} from "redux";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-function isAdmin(state = [false],action){
+let inatialState ={
+    isAdmin:[false],
+    unitCheck:"Pre-intermidiate"
+};
+
+function isAdmin(state = inatialState,action){
     if(action.type === "ADMIN"){
-        return [true]
+        return {
+            ...state,
+            isAdmin:[true]
+        }
+    }
+    if(action.type === "ELEMENTARY"){
+        return {
+            ...state,
+            unitCheck:"Elementary"
+        }
+    }
+    if(action.type === "PRE-INTERMIDIATE"){
+        return {
+            ...state,
+            unitCheck:"Pre-intermidiate"
+        }
     }
     return state
 }

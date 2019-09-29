@@ -54,7 +54,7 @@ class Nav extends Component{
 
 export default connect(
     state => ({
-        testStore: state
+        testStore: state.isAdmin
     }),
     dispatch => ({
         isAdmin:()=>{

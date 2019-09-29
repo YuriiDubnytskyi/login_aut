@@ -1,7 +1,11 @@
 import React , {Component}from 'react';
 import {connect} from "react-redux";
 class Books extends Component{
-
+    checkUnit(){
+        if(this.props.obj.key === 0){
+            this.props.checkU()
+        }
+    }
     ifAdmin(check){
         if(check){
             return (
@@ -16,20 +20,16 @@ class Books extends Component{
         console.log(this.props.testStore[0]);
         return (
             <div>
-
-                            <div className="card p-3 col-12 col-md-3">
-                                <div className="card-wrapper">
-                                    <div className="card-img">
-                                        <img src="assets/images/01.jpg" alt="Mobirise"/>
-                                    </div>
-                                    <div className="card-box">
-                                        <h4 className="card-title mbr-fonts-style display-7">{this.props.obj.bookName}</h4>
-                                        <p className="mbr-text mbr-fonts-style display-7">{this.props.obj.bookText}</p>
-                                    </div>
-                                    <div className="mbr-section-btn text-center"><a  className="btn btn-danger display-4" id="change" onClick="start()">Choose Unit</a></div>
-                                    {this.ifAdmin(this.props.testStore[0])}
-                                </div>
-
+                <div className="card-wrapper">
+                    <div className="card-img">
+                        <img src="assets/images/01.jpg" alt="Mobirise"/>
+                    </div>
+                    <div className="card-box">
+                        <h4 className="card-title mbr-fonts-style display-7">{this.props.obj.bookName}</h4>
+                        <p className="mbr-text mbr-fonts-style display-7">{this.props.obj.bookText}</p>
+                    </div>
+                    <div className="mbr-section-btn text-center"><a  className="btn btn-danger display-4" id="change" onClick={this.checkUnit.bind(this)}>Choose Unit</a></div>
+                        {this.ifAdmin(this.props.testStore[0])}
                     </div>
             </div>
         );
@@ -39,7 +39,11 @@ class Books extends Component{
 
 export default connect(
     state => ({
-        testStore: state
+        testStore: state.isAdmin
     }),
-    dispatch => ({})
+    dispatch => ({
+        checkU:()=>{
+            dispatch({type:"ELEMENTARY"})
+        }
+    })
 )(Books);

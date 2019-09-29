@@ -44,6 +44,25 @@ class Book extends Component{
             )
         }
     }
+    checkUnit(unit){
+        if(unit === "Elementary"){
+            return(
+                <section className="features3 cid-rqmTYSQ99c" id="features3-d">
+                    <div className="container">
+                        <div className="media-container-row">
+                            <div className="card p-3 col-12 col-md-6 col-lg-3">
+                                <div className="card-wrapper">
+                                    <div className="card-box">
+                                        <h4 className="card-title mbr-fonts-style display-7"><strong>Unit 6</strong></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+    }
 
 
     render() {
@@ -55,6 +74,7 @@ class Book extends Component{
                         <div className="media-container-row">
                     {this.tableBooks()}
                     {this.ifAdmin(this.props.testStore[0])}
+                    {this.checkUnit(this.props.testUnit)}
                         </div>
                     </div>
                 </section>
@@ -65,7 +85,8 @@ class Book extends Component{
 
 export default connect(
     state => ({
-        testStore: state
+        testStore: state.isAdmin,
+        testUnit:state.unitCheck
     }),
     dispatch => ({})
 )(Book);
