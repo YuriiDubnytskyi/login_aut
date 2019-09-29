@@ -39,8 +39,8 @@ app.get("/book",(req,res)=>{
             console.log(books);
             res.send(books)
         });
-        client.close();
     });
+    client.close();
 });
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
