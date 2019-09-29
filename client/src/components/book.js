@@ -27,7 +27,7 @@ class Book extends Component{
         if(check){
             return (
                 <div>
-                    <div className="card p-3 col-12 col-md-3">
+
                     <form>
                         <div className="form-group">
                             <label>Book name</label>
@@ -39,7 +39,7 @@ class Book extends Component{
                         </div>
                     </form>
                     <button>Add unit</button>
-                    </div>
+
                 </div>
             )
         }

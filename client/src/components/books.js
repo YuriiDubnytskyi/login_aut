@@ -2,7 +2,7 @@ import React , {Component}from 'react';
 import {connect} from "react-redux";
 class Books extends Component{
     checkUnit(){
-        if(this.props.obj.key === 0){
+        if(this.props.obj.bookName === 'New Headway Elementary v.4'){
             this.props.checkU()
         }
         console.log(this.key)
