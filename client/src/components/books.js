@@ -2,13 +2,21 @@ import React , {Component}from 'react';
 import {connect} from "react-redux";
 class Books extends Component{
 
-
+    ifAdmin(check){
+        if(check){
+            return (
+                <div>
+                    <input  placeholder="Unit number" />
+                    <button>Add unit</button>
+                </div>
+            )
+        }
+    }
     render() {
         console.log(this.props.testStore[0]);
         return (
             <div>
-                    <div className="container">
-                        <div className="media-container-row">
+
                             <div className="card p-3 col-12 col-md-3">
                                 <div className="card-wrapper">
                                     <div className="card-img">
@@ -19,9 +27,9 @@ class Books extends Component{
                                         <p className="mbr-text mbr-fonts-style display-7">{this.props.obj.bookText}</p>
                                     </div>
                                     <div className="mbr-section-btn text-center"><a  className="btn btn-danger display-4" id="change" onClick="start()">Choose Unit</a></div>
+                                    {this.ifAdmin(this.props.testStore[0])}
                                 </div>
-                            </div>
-                        </div>
+
                     </div>
             </div>
         );
