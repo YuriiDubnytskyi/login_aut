@@ -40,7 +40,7 @@ app.get("/book",(req,res)=>{
             res.send(books)
         });
     });
-    client.close();
+    
 });
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
