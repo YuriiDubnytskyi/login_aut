@@ -1,5 +1,6 @@
 import React , {Component}from 'react';
 import axios from 'axios';
+import Books from "./books";
 class Book extends Component{
 
     constructor(props) {
@@ -16,25 +17,10 @@ class Book extends Component{
                 console.log(error);
             })
     }
-    tabRow(){
-        return (<section className="features3 cid-rqmSnChdXl mbr-parallax-background" id="features3-b">
-            <div className="container">
-                <div className="media-container-row">
-                    <div className="card p-3 col-12 col-md-3">
-                        <div className="card-wrapper">
-                            <div className="card-img">
-                                <img src="assets/images/01.jpg" alt="Mobirise"/>
-                            </div>
-                            <div className="card-box">
-                                <h4 className="card-title mbr-fonts-style display-7"></h4>
-                                <p className="mbr-text mbr-fonts-style display-7"></p>
-                            </div>
-                            <div className="mbr-section-btn text-center"><a  className="btn btn-danger display-4" id="change" onClick="start()">Choose Unit</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>)
+    tableBooks(){
+        return this.state.books.map(function(object, i){
+            return <Books obj={object} key={i}  />;
+        });
     }
 
 
@@ -43,7 +29,9 @@ class Book extends Component{
         console.log(this.state)
         return (
             <div>
-            {this.tabRow()}
+                <section className="features3 cid-rqmSnChdXl mbr-parallax-background" id="features3-b">
+                    {this.tableBooks()}
+                </section>
             </div>
         );
     }
