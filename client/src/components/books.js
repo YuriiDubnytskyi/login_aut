@@ -1,8 +1,10 @@
 import React , {Component}from 'react';
 
 class Books extends Component{
-    render() {
 
+
+    render() {
+        console.log(this.props.testStore[0]);
         return (
             <div>
                     <div className="container">
@@ -27,4 +29,9 @@ class Books extends Component{
 }
 
 
-export default Books;
+export default connect(
+    state => ({
+        testStore: state
+    }),
+    dispatch => ({})
+)(Books);
