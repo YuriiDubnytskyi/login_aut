@@ -23,7 +23,7 @@ class Book extends Component{
             return <Books obj={object} key={i}  />;
         });
     }
-    .
+    
     ifAdmin(check){
         if(check){
             return (
