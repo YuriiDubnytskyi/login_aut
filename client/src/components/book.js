@@ -23,21 +23,11 @@ class Book extends Component{
             return <Books obj={object} key={i}  />;
         });
     }
-    addBook(){
-        let book={
-            bookName:document.getElementById('formGroupExampleInput'),
-            bookText:document.getElementById('formGroupExampleInput2')
-        }
-        axios.post('/addBook', book)
-            .then(res => console.log(res.data));
-
-        alert('Sucsses')
-    }
+    .
     ifAdmin(check){
         if(check){
             return (
                 <div>
-
                     <form>
                         <div className="form-group">
                             <label>Book name</label>
@@ -49,7 +39,6 @@ class Book extends Component{
                         </div>
                     </form>
                     <button onClick={this.addBook()}>Add book</button>
-
                 </div>
             )
         }
