@@ -81,7 +81,9 @@ class Book extends Component{
 
     render() {
         let el = document.getElementById("addBook");
-        el.addEventListener('click',this.addBook)
+        if(el!==null) {
+            el.addEventListener('click', this.addBook)
+        }
         console.log(this.props)
         return (
             <div>
