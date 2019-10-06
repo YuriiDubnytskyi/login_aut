@@ -7,6 +7,7 @@ class Book extends Component{
     constructor(props) {
         super(props);
         this.state = {books: []};
+        this.addBook = this.addBook.bind(this);
     }
     componentDidMount(){
         axios.get('/book')
@@ -23,7 +24,20 @@ class Book extends Component{
             return <Books obj={object} key={i}  />;
         });
     }
-    
+    addBook(){
+        let book={
+            bookName:document.getElementById('formGroupExampleInput'),
+            bookText:document.getElementById('formGroupExampleInput2')
+        };
+        if(book.bookText !== null) {
+            axios.post('/addBook', book)
+                .then(res => console.log(res.data));
+
+            alert('Sucsses')
+        }else{
+            console.log("here")
+        }
+    }
     ifAdmin(check){
         if(check){
             return (

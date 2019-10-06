@@ -19,16 +19,7 @@ class Books extends Component{
             )
         }
     }
-    addBook(){
-        let book={
-            bookName:document.getElementById('formGroupExampleInput'),
-            bookText:document.getElementById('formGroupExampleInput2')
-        };
-        axios.post('/addBook', book)
-            .then(res => console.log(res.data));
 
-        alert('Sucsses')
-    }
     render() {
         console.log(this.props.testStore[0]);
         return (
