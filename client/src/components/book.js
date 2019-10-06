@@ -24,6 +24,7 @@ class Book extends Component{
             return <Books obj={object} key={i}  />;
         });
     }
+
     addBook(){
         let book={
             bookName:document.getElementById('formGroupExampleInput'),
@@ -52,7 +53,7 @@ class Book extends Component{
                             <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Book text"/>
                         </div>
                     </form>
-                    <button onClick={this.addBook()}>Add book</button>
+                    <button id="addBook">Add book</button>
                 </div>
             )
         }
@@ -79,6 +80,8 @@ class Book extends Component{
 
 
     render() {
+        let el = document.getElementById("addBook");
+        el.addEventListener('click',this.addBook)
         console.log(this.props)
         return (
             <div>
