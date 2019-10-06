@@ -42,6 +42,17 @@ app.get("/book",(req,res)=>{
     });
 
 });
+app.post("/addBook",(req,res)=>{
+    client.connect(err => {
+        const collection = client.db("usersData").collection("usersSite");
+        collection.insertOne({bookName: req.body.bookName, bookText: req.body.bookText}, ((err, res) => {
+                if (err) return console.log(err);
+                console.log(res);
+            })
+        );
+    })
+});
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
