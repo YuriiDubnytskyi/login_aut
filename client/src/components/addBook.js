@@ -1,5 +1,6 @@
 import React , {Component}from 'react';
 import {connect} from "react-redux";
+import axios from 'axios';
 class addBook extends Component{
     constructor(props) {
         super(props);
@@ -43,7 +44,7 @@ class addBook extends Component{
                         <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Book text"/>
                     </div>
                 </form>
-                <button id="addBook" onClick={addBooks}>Add book</button>
+                <button id="addBook" onClick="addBooks()">Add book</button>
             </div>
         );
     }
