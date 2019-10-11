@@ -3,9 +3,9 @@ import {connect} from "react-redux";
 class addBook extends Component{
     constructor(props) {
         super(props);
-        this.addBook = this.addBook.bind(this);
+        this.addBooks = this.addBooks.bind(this);
     }
-    addBook(){
+    addBooks(){
         let book={
             bookName:document.getElementById('formGroupExampleInput'),
             bookText:document.getElementById('formGroupExampleInput2')
@@ -43,7 +43,7 @@ class addBook extends Component{
                         <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Book text"/>
                     </div>
                 </form>
-                <button id="addBook">Add book</button>
+                <button id="addBook" onClick={addBooks}>Add book</button>
             </div>
         );
     }

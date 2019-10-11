@@ -1,8 +1,8 @@
 import React , {Component}from 'react';
 import axios from 'axios';
 import Books from "./books";
-import {connect} from "react-redux";
 import addBook from "./addBook";
+import {connect} from "react-redux";
 class Book extends Component{
 
     constructor(props) {
@@ -30,7 +30,9 @@ class Book extends Component{
     ifAdmin(check){
         if(check){
             return (
-                <addBook>
+                <div>
+                    <addBook/>
+                </div>
             )
         }
     }
@@ -56,11 +58,7 @@ class Book extends Component{
 
 
     render() {
-        let el = document.getElementById("addBook");
-        if(el !== null) {
-            el.addEventListener('click', this.addBook)
-        }
-        console.log(this.props)
+
         return (
             <div>
                 <section className="features3 cid-rqmSnChdXl mbr-parallax-background" id="features3-b">
