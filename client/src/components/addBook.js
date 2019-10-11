@@ -44,7 +44,7 @@ class addBook extends Component{
                         <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Book text"/>
                     </div>
                 </form>
-                <button id="addBook" onClick="addBooks()">Add book</button>
+                <button id="addBook" onClick={this.addBooks()}>Add book</button>
             </div>
         );
     }
