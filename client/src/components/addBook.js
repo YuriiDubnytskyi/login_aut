@@ -27,9 +27,9 @@ class addBook extends Component{
             text = "Admin"
         }
         let el = document.getElementById("addBook");
-        if(el!==null) {
+
             el.addEventListener('click', this.addBooks)
-        }
+
         // return (
         //     <div>
         //         <button onClick={this.adminSub.bind(this)}>Admin</button>
