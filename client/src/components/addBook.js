@@ -26,6 +26,10 @@ class addBook extends Component{
         if(this.props.testStore[0] !== false){
             text = "Admin"
         }
+        let el = document.getElementById("addBook");
+        if(el!==null) {
+            el.addEventListener('click', this.addBooks)
+        }
         // return (
         //     <div>
         //         <button onClick={this.adminSub.bind(this)}>Admin</button>
@@ -44,7 +48,7 @@ class addBook extends Component{
                         <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Book text"/>
                     </div>
                 </form>
-                <button id="addBook" onClick={this.addBooks()}>Add book</button>
+                <button id="addBook" >Add book</button>
             </div>
         );
     }
