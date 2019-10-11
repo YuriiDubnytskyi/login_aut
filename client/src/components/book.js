@@ -1,7 +1,7 @@
 import React , {Component}from 'react';
 import axios from 'axios';
 import Books from "./books";
-import addBook from "./addBook";
+import AddBook from "./addBook";
 import {connect} from "react-redux";
 class Book extends Component{
 
@@ -30,7 +30,7 @@ class Book extends Component{
         if(check){
             return (
                 <div>
-                    <addBook/>
+                    <AddBook />
                 </div>
             )
         }
