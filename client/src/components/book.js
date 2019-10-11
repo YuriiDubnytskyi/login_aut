@@ -2,6 +2,7 @@ import React , {Component}from 'react';
 import axios from 'axios';
 import Books from "./books";
 import {connect} from "react-redux";
+import addBook from "./addBook";
 class Book extends Component{
 
     constructor(props) {
@@ -25,36 +26,11 @@ class Book extends Component{
         });
     }
 
-    addBook(){
-        let book={
-            bookName:document.getElementById('formGroupExampleInput'),
-            bookText:document.getElementById('formGroupExampleInput2')
-        };
-        if(book.bookText !== null) {
-            axios.post('/addBook', book)
-                .then(res => console.log(res.data));
 
-            alert('Sucsses')
-        }else{
-            console.log("here")
-        }
-    }
     ifAdmin(check){
         if(check){
             return (
-                <div>
-                    <form>
-                        <div className="form-group">
-                            <label>Book name</label>
-                            <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Book name"/>
-                        </div>
-                        <div className="form-group">
-                            <label>Book text</label>
-                            <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Book text"/>
-                        </div>
-                    </form>
-                    <button id="addBook">Add book</button>
-                </div>
+                <addBook>
             )
         }
     }
@@ -81,7 +57,7 @@ class Book extends Component{
 
     render() {
         let el = document.getElementById("addBook");
-        if(el!==null) {
+        if(el !== null) {
             el.addEventListener('click', this.addBook)
         }
         console.log(this.props)
