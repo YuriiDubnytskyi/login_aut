@@ -1,13 +1,14 @@
 import React , {Component}from 'react';
 import axios from 'axios';
 import Books from "./books";
-import AddBook from "./addBook";
+// import AddBook from "./addBook";
 import {connect} from "react-redux";
 class Book extends Component{
 
     constructor(props) {
         super(props);
         this.state = {books: []};
+        this.addBooks = this.addBooks.bind(this);
     }
     componentDidMount(){
         axios.get('/book')
@@ -26,15 +27,15 @@ class Book extends Component{
     }
 
 
-    ifAdmin(check){
-        if(check){
-            return (
-                <div>
-                    <AddBook />
-                </div>
-            )
-        }
-    }
+    // ifAdmin(check){
+    //     if(check){
+    //         return (
+    //             <div>
+    //                 <AddBook />
+    //             </div>
+    //         )
+    //     }
+    // }
     checkUnit(unit){
         if(unit === "Elementary"){
             return(
@@ -55,16 +56,45 @@ class Book extends Component{
         }
     }
 
+    addBooks(){
+        let book={
+            bookName:document.getElementById('formGroupExampleInput'),
+            bookText:document.getElementById('formGroupExampleInput2')
+        };
+        if(book.bookText !== null) {
+            axios.post('/addBook', book)
+                .then(res => console.log(res.data));
 
+            alert('Sucsses')
+        }else{
+            console.log("here")
+        }
+    }
     render() {
+        let el = document.getElementById("addBook");
 
+        if(el!==null) {
+            el.addEventListener('click', this.addBooks)
+        }
         return (
             <div>
                 <section className="features3 cid-rqmSnChdXl mbr-parallax-background" id="features3-b">
                     <div className="container">
                         <div className="media-container-row">
                     {this.tableBooks()}
-                    {this.ifAdmin(this.props.testStore[0])}
+                            <div>
+                                <form>
+                                    <div className="form-group">
+                                        <label>Book name</label>
+                                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Book name"/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Book text</label>
+                                        <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Book text"/>
+                                    </div>
+                                </form>
+                                <button id="addBook" >Add book</button>
+                            </div>
 
                         </div>
                     </div>
