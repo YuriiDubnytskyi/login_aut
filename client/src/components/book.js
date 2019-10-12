@@ -63,7 +63,6 @@ class Book extends Component{
         };
         if(book.bookText !== null) {
             axios.post('/addBook', book)
-                .then(res => console.log(res.data));
 
             alert('Sucsses')
         }else{
