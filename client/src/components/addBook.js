@@ -8,8 +8,8 @@ class addBook extends Component{
     }
     addBooks(){
         let book={
-            bookName:document.getElementById('formGroupExampleInput'),
-            bookText:document.getElementById('formGroupExampleInput2')
+            bookName:document.getElementById('formGroupExampleInput').value,
+            bookText:document.getElementById('formGroupExampleInput2').value
         };
         if(book.bookText !== null) {
             axios.post('/addBook', book)
