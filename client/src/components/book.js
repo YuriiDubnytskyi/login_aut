@@ -82,21 +82,6 @@ class Book extends Component{
                         <div className="media-container-row">
                     {this.tableBooks()}
                             {this.ifAdmin(this.props.testStore[0])}
-                            {/*<div>*/}
-                                {/*<form>*/}
-                                    {/*<div className="form-group">*/}
-                                        {/*<label>Book name</label>*/}
-                                        {/*<input type="text" className="form-control" id="formGroupExampleInput" placeholder="Book name"/>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="form-group">*/}
-                                        {/*<label>Book text</label>*/}
-                                        {/*<input type="text" className="form-control" id="formGroupExampleInput2" placeholder="Book text"/>*/}
-                                    {/*</div>*/}
-                                {/*</form>*/}
-                                {/*<button id="addBook" >Add book</button>*/}
-                            {/*</div>*/}
-                            <AddBook />
-
                         </div>
                     </div>
                 </section>
