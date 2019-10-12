@@ -8,7 +8,7 @@ class Book extends Component{
     constructor(props) {
         super(props);
         this.state = {books: []};
-        this.addBooks = this.addBooks.bind(this);
+        //this.addBooks = this.addBooks.bind(this);
     }
     componentDidMount(){
         axios.get('/book')
