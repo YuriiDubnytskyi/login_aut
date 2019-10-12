@@ -27,12 +27,10 @@ class Book extends Component{
     }
 
 
-     ifAdmin(check){
-        if(check){
+     ifAdmin(){
+        if(this.props.testStore[0]){
              return (
-                 <div>
                     <AddBook />
-                 </div>
              )
          }
     }
@@ -81,7 +79,7 @@ class Book extends Component{
                     <div className="container">
                         <div className="media-container-row">
                     {this.tableBooks()}
-                            <AddBook />
+                    {this.ifAdmin()}
                         </div>
                     </div>
                 </section>
