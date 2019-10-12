@@ -81,7 +81,7 @@ class Book extends Component{
                     <div className="container">
                         <div className="media-container-row">
                     {this.tableBooks()}
-                            {this.ifAdmin(this.props.testStore[0])}
+                            <AddBook />
                         </div>
                     </div>
                 </section>
